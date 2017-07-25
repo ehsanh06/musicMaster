@@ -10,8 +10,8 @@ The project was created to show my competency and understanding for not only usi
 
 Simply just clone or fork this repository, and run the following command:
 
-> npm i
-> This will ensure every package for this project is up to date.
+> npm install
+This will ensure every package for this project is up to date.
 
 
 ## API Reference
@@ -25,7 +25,7 @@ Due to Spotify updating things their end, you will need an **access_token** to a
 
 ## License
 
-Copyright 2017 Ehsan Hussani
+Copyright 2017 Ehsan Hussain
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
