@@ -6,9 +6,7 @@ class Profile extends Component {
         let artist = {name: '', followers: {total: ''}};
 
         // Setting artist, in the event that when artist isn't null
-        if (this.props.artist !== null) {
-            artist = this.props.artist;
-        }
+        artist = this.props.artist !== null ? this.props.artist : artist;
 
         return (
             <div>
