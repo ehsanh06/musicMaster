@@ -21,7 +21,7 @@ class App extends Component {
 
         const BASE_URL = 'https://api.spotify.com/v1/search?';
         const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-        var accessToken = 'BQC57qUZGe-tYDSHvT9vXtTb1N8BX7wLZzMxnDeiZCxEPFVpDr6lOsNmYqrfK1hgjxRmQFZkVkH62HnEQJj_siyRv3oBZR0PkseO-gwNM1RJqUtR5sPhQkcc0MFrKlQb5pH4Vzd6yVvoAA-YphOAHz04e7467xFa&refresh_token=AQAuYsjLu3mj8xj3Yi5FwlW2EOSBApi-cm9WJ43RwOmPpm9OUeDngQHLlLuf6KleQ436nmxi3g6g1ntwhql_nGstkXKXXLkAVx7ogNDp_be3bIww-qB1QsS5ZkTwJaQQiEk';
+        var accessToken = 'BQBfhswTJ5jz1mAs2fdK4VSxQrQMht0Hf43DCpnAIsgO8GwzqJTOnzptXli-FQDfS4mSilM5s_l8hA5szJ-8ixdqXGLgCRSANHtbreuf7aN5SAP5mFkl6oy3puzTlFst-u45AkcCN64uC-vGZ5hNu0hHq477w_w3&refresh_token=AQCuFNf5PZTE9vuifJg3mJouLXM28m7VJapm5aWnsw7A4LzXaBJWffED-9c2iAJt0T757QBdO6gRPvMc2hZMr2aL4_XntcehZCjVvggcef6vIHtCnJBjj28RZT73HDkICWI';
         var myHeaders = new Headers();
 
         var myOptions = {
