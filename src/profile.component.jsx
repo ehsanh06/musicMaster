@@ -24,8 +24,12 @@ class Profile extends Component {
                 />
 
                 <div className='profile-info'>
-                    <h2 className='profile-artist-name'>{artist.name}</h2>
-                    <p className='profile-artist-followers'>{artist.followers.total} followers</p>
+                    <h2 className='profile-artist-name'>
+                        {artist.name}
+                    </h2>
+                    <p className='profile-artist-followers'>
+                        {artist.followers.total} followers
+                    </p>
                     <p className='profile-artist-genres'>
                         {
                             artist.genres.map((genre, k) => {

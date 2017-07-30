@@ -12,11 +12,13 @@ body {
     padding: 10%;
 }
 /* App  */
-
 .app {
     text-align: center;
     padding: 5%;
     background: rgba(0, 0, 0, 0.5);
+}
+.app h1 {
+    margin-bottom: 1em;
 }
 
 /* Profile  */

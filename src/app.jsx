@@ -39,7 +39,7 @@ class App extends Component {
                 const artist = json.artists.items[0];
                 console.log('artist', artist);
 
-                this.setState({artist});
+                this.setState({ artist });
             });
 
         console.log('FETCH_URL', FETCH_URL);
@@ -69,12 +69,18 @@ class App extends Component {
                     </InputGroup>
 
                 </FormGroup>
+                {
+                    this.state.artist !== null
+                    ?
+                        <div>
+                            <Profile artist={this.state.artist} />
+                            <div className='app-gallery'>
+                                Gallery
+                            </div>
+                        </div>
 
-                <Profile artist={this.state.artist} />
-
-                <div className='app-gallery'>
-                    Gallery
-                </div>
+                        : <div></div>
+                }
             </div>
         );
     }
