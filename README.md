@@ -10,8 +10,7 @@ The project was created to show my competency and understanding for not only usi
 
 Simply just clone or fork this repository, and run the following command:
 
-> npm install
-This will ensure every package for this project is up to date.
+> PS C:\Windows\System32> npm install
 
 
 ## API Reference
