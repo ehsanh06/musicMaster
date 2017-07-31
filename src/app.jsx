@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 
 import Profile from './profile.component';
+import Gallery from './gallery.component';
 import './assets/css/style.css';
 
 class App extends Component {
@@ -82,12 +83,10 @@ class App extends Component {
                     ?
                         <div>
                             <Profile artist={this.state.artist} />
-                            <div className='app-gallery'>
-                                Gallery
-                            </div>
+                            <Gallery tracks={this.state.tracks} />
                         </div>
 
-                        : <div></div>
+                    : <div></div>
                 }
             </div>
         );
