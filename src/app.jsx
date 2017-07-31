@@ -10,20 +10,22 @@ class App extends Component {
         super(props);
         this.state = {
             query: '',
-            artist: null
+            artist: null,
+            tracks: []
         };
     }
 
     search() {
 
-        // Check state
         console.log('this.state', this.state);
-
         const BASE_URL = 'https://api.spotify.com/v1/search?';
-        const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-        var accessToken = 'BQBfhswTJ5jz1mAs2fdK4VSxQrQMht0Hf43DCpnAIsgO8GwzqJTOnzptXli-FQDfS4mSilM5s_l8hA5szJ-8ixdqXGLgCRSANHtbreuf7aN5SAP5mFkl6oy3puzTlFst-u45AkcCN64uC-vGZ5hNu0hHq477w_w3&refresh_token=AQCuFNf5PZTE9vuifJg3mJouLXM28m7VJapm5aWnsw7A4LzXaBJWffED-9c2iAJt0T757QBdO6gRPvMc2hZMr2aL4_XntcehZCjVvggcef6vIHtCnJBjj28RZT73HDkICWI';
-        var myHeaders = new Headers();
+        let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
+        const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
 
+        // Access Token expires every hour, change accordingly
+        var accessToken = 'BQDTl3ex7a-j0RNwfq9FGJHQ0mvN_Sn7TydA8zUnYoMsuDfte2rtkW40_Y7NMXysNHCNzd4QwHe-asmm6E_mOgcI_ouZv_7LBOCGKlknMnaV56CVcgwColc00wUgpT0ry_dgC4Rqqnhb2Jqyllzo_NdmYgDzeZ7h&refresh_token=AQBnqZv1hfeYu92r_TW-MY2xp_IWre8Ziu2-rLp0iLT4oBrftuRJneVLOhKgiC8WhfiEzmWVz3qrv4V1X3xOoI4Vt1S-SFJbkinzixQ56w5lfE66B8D_J_wVqt3cGNc_Vu4';
+        
+        var myHeaders = new Headers();
         var myOptions = {
             method: 'GET',
             headers: {
@@ -37,12 +39,18 @@ class App extends Component {
             .then(response => response.json())
             .then(json => {
                 const artist = json.artists.items[0];
-                console.log('artist', artist);
-
                 this.setState({ artist });
-            });
 
-        console.log('FETCH_URL', FETCH_URL);
+                FETCH_URL = `${ALBUM_URL}${artist.id}/top-tracks?country=US&`
+
+                fetch(FETCH_URL, myOptions)
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log('artist\'s top tracks:', json);
+                        const { tracks } = json;
+                        this.setState({tracks})
+                    })
+            });
     }
 
     render() {
