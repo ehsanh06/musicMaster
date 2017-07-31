@@ -8,7 +8,7 @@ class Gallery extends Component {
         this.state = {
             playingUrl: '',
             audio: null,
-            playing : false
+            playing: false
         }
     }
 
@@ -49,20 +49,32 @@ class Gallery extends Component {
         const { tracks } = this.props;
         return (
             <div className='app-gallery'>
-                {tracks.map((track, k) => {
-                    const trackImg = track.album.images[0].url;
-                    console.log('Track:', track);
+                {
+                    tracks.map((track, k) => {
+                        const trackImg = track.album.images[0].url;
+                        console.log('Track:', track);
 
-                    return (
-                        <div key={k} className='track' onClick={() => this.playAudio(track.preview_url)}>
-                            <img src={trackImg} className='track-img' alt='Track Image' />
-                            <p className='track-text'>
-                                {track.name}
-                            </p>
-                        </div>
-                    )
+                        return (
+                            <div key={k} className='track' onClick={() => this.playAudio(track.preview_url)}>
+                                <img src={trackImg} className='track-img' alt='Track Image' />
 
-                })}
+                                <div className="track-play">
+                                    <div className="track-play-inner">
+                                        {
+                                            this.state.playingUrl === track.preview_url
+                                            ? <span>&#10074;&#10074;</span>  /* Pause */
+                                            : <span>&#9654;</span>  /* Play */
+                                        }
+                                    </div>
+                                </div>
+                                <p className='track-text'>
+                                    {track.name}
+                                </p>
+                            </div>
+                        )
+
+                    })
+                }
             </div>
         )
     }
